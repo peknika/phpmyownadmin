@@ -1,6 +1,6 @@
 <?php
 
-namespace src\Core\Modules\Query\Domain\Entity;
+namespace src\Modules\Query\Domain\Entity;
 
 
 use EntityInterface;

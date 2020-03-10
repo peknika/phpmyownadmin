@@ -1,6 +1,6 @@
 <?php
 
-namespace src\Core\Modules\Table\Domain\Entity;
+namespace src\Modules\Table\Domain\Entity;
 
 
 use EntityInterface;

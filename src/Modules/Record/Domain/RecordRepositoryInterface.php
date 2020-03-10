@@ -1,5 +1,6 @@
 <?php
 
+namespace src\Modules\Record\Domain;
 
 interface RecordRepositoryInterface
 {
