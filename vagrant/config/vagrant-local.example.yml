@@ -1,5 +1,5 @@
 # Your personal GitHub token
-github_token: <your-personal-github-token>
+github_token: 426c1006965d923c0b17feab9e7e1d6b0b1a4a57
 # Read more: https://github.com/blog/1509-personal-api-tokens
 # You can generate it here: https://github.com/settings/tokens
 
@@ -10,7 +10,7 @@ timezone: Europe/London
 box_check_update: false
 
 # Virtual machine name
-machine_name: y2aa
+machine_name: y2aa2
 
 # Virtual machine IP
 ip: 192.168.83.137

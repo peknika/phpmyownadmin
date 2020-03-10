@@ -3,7 +3,7 @@ return [
     'components' => [
         'db' => [
             'class' => 'yii\db\Connection',
-            'dsn' => 'pgsql:host=192.168.83.140;port=5432;dbname=phpmyownadmin',
+            'dsn' => 'pgsql:host=192.168.83.137;port=5432;dbname=phpmyownadmin',
             'username' => 'vagrant',
             'password' => 'vagrant',
             'charset' => 'utf8',
@@ -15,6 +15,7 @@ return [
             // 'useFileTransport' to false and configure a transport
             // for the mailer to send real emails.
             'useFileTransport' => true,
+//            'urlManager' => require __DIR__ . '/url_manager.php'
         ],
     ],
 ];
