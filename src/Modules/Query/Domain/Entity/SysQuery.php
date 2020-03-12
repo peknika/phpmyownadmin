@@ -20,7 +20,7 @@ class SysQuery extends AbstractAttributesEntity implements EntityInterface
 
     public function getTableName(): string
     {
-        return self::getTableName();
+        return self::TABLE_NAME;
     }
 
 }

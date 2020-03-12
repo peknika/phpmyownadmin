@@ -32,19 +32,36 @@ class RecordController extends Controller
 
     }
 
+    /**
+     * @return string
+     */
     public function actionQuery()
     {
-        return $this->render('query') ;
+        $data = Yii::$app->request->get();
+        return $this->render('query', ['message' => null]) ;
     }
 
+    public function actionQueryExecute($query)
+    {
+        $message = $this->queryRepository->executeQuery($query['query_body']);
+        return $this->render('query', ['message' => null, 'query_body' => $query['query_body']]) ;
+    }
+
+
+    /**
+     * @return \yii\web\Response
+     * @throws \yii\db\Exception
+     */
     public function actionQueryCreate()
     {
         $query=Yii::$app->request->get();
-        $this->queryRepository->executeQuery($query['query_body']);
+        $this->actionQueryExecute($query);
+
         if(count($query) === 3)
         {
             $queryEntity = $this->mapper->map($query, new SysQuery());
             $this->queryRepository->insert($queryEntity);
+            return $this->redirect(Yii::$app->request->referrer);
         }
     }
 }

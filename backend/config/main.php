@@ -13,11 +13,6 @@ $params = array_merge(
 return [
     'id' => 'app-backend',
     'basePath' => dirname(__DIR__),
-//    'container' => [
-//        'singletons' => [
-//            QueryRepositoryInterface::class => QueryRepository::class
-//        ]
-//    ],
     'controllerNamespace' => 'backend\controllers',
     'bootstrap' => ['log'],
     'modules' => [],
@@ -46,11 +41,6 @@ return [
         'errorHandler' => [
             'errorAction' => 'site/error',
         ],
-//        'container' => [
-//            'singletons' => [
-//                QueryRepositoryInterface::class => QueryRepository::class
-//            ]
-//        ],
 //        'urlManager' => [
 //            'enablePrettyUrl' => true,
 //            'showScriptName' => false,

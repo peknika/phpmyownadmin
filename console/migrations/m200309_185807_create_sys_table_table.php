@@ -14,7 +14,11 @@ class m200309_185807_create_sys_table_table extends Migration
     {
         $this->createTable('{{%sys_table}}', [
             'sys_id' => $this->primaryKey(),
-            'table_name' => $this->string()
+            'table_name' => $this->string(),
+            'created_at' => $this->timestamp(),
+            'updated_at' => $this->timestamp(),
+            'created_by' => $this->integer(),
+            'updated_by' => $this->integer()
         ]);
     }
 

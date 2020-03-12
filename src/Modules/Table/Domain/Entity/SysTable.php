@@ -2,9 +2,10 @@
 
 namespace src\Modules\Table\Domain\Entity;
 
+use src\Core\Domain\Entity\AbstractAttributesEntity;
 use src\Core\Domain\Entity\EntityInterface;
 
-class SysTable implements EntityInterface
+class SysTable extends AbstractAttributesEntity implements EntityInterface
 {
     const TABLE_NAME = 'sys_table';
 
@@ -16,7 +17,7 @@ class SysTable implements EntityInterface
 
     public function getTableName(): string
     {
-        return self::getTableName();
+        return self::TABLE_NAME;
     }
 
 }

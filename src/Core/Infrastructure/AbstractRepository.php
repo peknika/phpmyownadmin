@@ -7,13 +7,24 @@ use Yii;
 
 abstract class AbstractRepository
 {
+    /**
+     * @param EntityInterface $entity
+     * @return bool
+     * @throws \yii\db\Exception
+     */
     public function insert(EntityInterface $entity): bool
     {
+        $attributes = $entity->geAttributes();
+        unset($attributes['sys_id']);
         return (bool)Yii::$app->db->createCommand()
-            ->insert($entity->getTableName(), $entity->geAttributes())
+            ->insert($entity->getTableName(), $attributes)
             ->execute();
     }
 
+    /**
+     * @param EntityInterface $entity
+     * @return bool
+     */
     public function remove(EntityInterface $entity): bool
     {
 
@@ -21,8 +32,10 @@ abstract class AbstractRepository
 
     public function create(EntityInterface $entity): bool
     {
-        $entity->getTableName();
-        get_object_vars($entity);
+      if ($entity->id) {
+          return $this->insert($entity);
+      }
+      return $this->save($entity);
     }
 
     public function update(EntityInterface $entity): bool

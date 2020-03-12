@@ -1,6 +1,7 @@
 <?php
 
 use src\Core\Domain\Mapper\MapService;
+use src\Core\Infrastructure\RecordService\RecordService;
 use src\Modules\Query\Domain\Repository\QueryRepositoryInterface;
 use src\Modules\Query\Infrastructure\Repository\QueryRepository;
 
@@ -19,8 +20,8 @@ return [
     'container' => [
         'singletons' => [
             QueryRepositoryInterface::class => QueryRepository::class,
-            MapService::class => MapService::class
-
-        ]
+            MapService::class => MapService::class,
+            RecordService::class => RecordService::class
+            ]
     ],
 ];

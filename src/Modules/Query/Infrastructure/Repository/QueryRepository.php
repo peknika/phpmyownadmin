@@ -11,13 +11,6 @@ use yii\db\Query;
 
 class QueryRepository extends AbstractRepository implements QueryRepositoryInterface
 {
- //   private $query;
-
-//    public function __construct(SysQuery $query)
-//    {
-//        $this->query = $query;
-//    }
-
     public function executeQuery(string $query)
     {
         try {

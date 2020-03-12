@@ -11,7 +11,11 @@ class MapService
         $target = new $target;
 
         foreach ($source as $property => $value) {
-            $target->{$property} = $value;
+            if (property_exists($target, $property))
+            {
+                $target->{$property} = $value;
+
+            }
         }
         return $target;
     }
