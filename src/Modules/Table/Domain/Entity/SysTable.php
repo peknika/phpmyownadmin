@@ -2,8 +2,7 @@
 
 namespace src\Modules\Table\Domain\Entity;
 
-
-use EntityInterface;
+use src\Core\Domain\Entity\EntityInterface;
 
 class SysTable implements EntityInterface
 {

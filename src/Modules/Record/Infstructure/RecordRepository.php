@@ -1,6 +1,6 @@
 <?php
 
-namespace src\Modules\Record\Infrastructure\RecordRepository;
+namespace src\Modules\Record\Infrastructure;
 
 use src\Core\Infrastructure\AbstractRepository;
 use src\Modules\Record\Domain\RecordRepositoryInterface;

@@ -66,9 +66,8 @@ class ListController extends Controller
     }
 
     /**
-     * @param $entity
+     * @param $table_name
      * @return mixed
-     * @throws \yii\web\NotFoundHttpException
      */
     public function actionIndex($table_name)
     {

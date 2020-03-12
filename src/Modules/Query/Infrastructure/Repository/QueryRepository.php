@@ -3,12 +3,13 @@
 namespace src\Modules\Query\Infrastructure\Repository;
 
 use src\Core\Infrastructure\AbstractRepository;
-use src\Core\Modules\Query\Domain\Entity\SysQuery;
+use src\Modules\Query\Domain\Entity\SysQuery;
+use src\Modules\Query\Domain\Repository\QueryRepositoryInterface;
 use Yii;
 use yii\db\Exception;
 use yii\db\Query;
 
-class QueryRepository extends AbstractRepository
+class QueryRepository extends AbstractRepository implements QueryRepositoryInterface
 {
  //   private $query;
 
@@ -24,11 +25,6 @@ class QueryRepository extends AbstractRepository
         } catch (Exception $e) {
             return $e->getMessage();
         }
-    }
-
-    public function getQueryEntity(): SysQuery
-    {
-        return new SysQuery();
     }
 
     public function findOneById(int $id)

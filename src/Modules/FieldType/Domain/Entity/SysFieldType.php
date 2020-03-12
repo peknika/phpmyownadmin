@@ -2,8 +2,7 @@
 
 namespace src\Modules\SysFieldType\Domain\Entity;
 
-
-use EntityInterface;
+use src\Core\Domain\Entity\EntityInterface;
 
 class SysFieldType implements EntityInterface
 {

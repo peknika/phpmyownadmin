@@ -2,7 +2,8 @@
 
 namespace src\Modules\Table\Infrastructure\Repository;
 
-use AbstractRepository;
+
+use src\Core\Infrastructure\AbstractRepository;
 
 class TableRepository extends AbstractRepository
 {

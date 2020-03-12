@@ -2,10 +2,10 @@
 
 namespace src\Modules\Query\Domain\Entity;
 
+use src\Core\Domain\Entity\AbstractAttributesEntity;
+use src\Core\Domain\Entity\EntityInterface;
 
-use EntityInterface;
-
-class SysQuery implements EntityInterface
+class SysQuery extends AbstractAttributesEntity implements EntityInterface
 {
     const TABLE_NAME = 'sys_query';
 

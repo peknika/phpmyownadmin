@@ -2,7 +2,8 @@
 
 namespace src\Modules\Column\Domain\Entity;
 
-use EntityInterface;
+
+use src\Core\Domain\Entity\EntityInterface;
 
 class SysColumn implements EntityInterface
 {

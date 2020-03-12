@@ -1,4 +1,8 @@
 <?php
+
+use src\Modules\Query\Domain\Repository\QueryRepositoryInterface;
+use src\Modules\Query\Infrastructure\Repository\QueryRepository;
+
 $params = array_merge(
     require __DIR__ . '/../../common/config/params.php',
     require __DIR__ . '/../../common/config/params-local.php',
@@ -9,6 +13,11 @@ $params = array_merge(
 return [
     'id' => 'app-backend',
     'basePath' => dirname(__DIR__),
+//    'container' => [
+//        'singletons' => [
+//            QueryRepositoryInterface::class => QueryRepository::class
+//        ]
+//    ],
     'controllerNamespace' => 'backend\controllers',
     'bootstrap' => ['log'],
     'modules' => [],
@@ -37,6 +46,11 @@ return [
         'errorHandler' => [
             'errorAction' => 'site/error',
         ],
+//        'container' => [
+//            'singletons' => [
+//                QueryRepositoryInterface::class => QueryRepository::class
+//            ]
+//        ],
 //        'urlManager' => [
 //            'enablePrettyUrl' => true,
 //            'showScriptName' => false,

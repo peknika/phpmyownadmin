@@ -15,7 +15,7 @@ return [
             // 'useFileTransport' to false and configure a transport
             // for the mailer to send real emails.
             'useFileTransport' => true,
-//            'urlManager' => require __DIR__ . '/url_manager.php'
         ],
+//        'urlManager' => require __DIR__ . '/url_manager.php'
     ],
 ];
