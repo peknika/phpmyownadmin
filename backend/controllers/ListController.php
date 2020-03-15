@@ -2,28 +2,21 @@
 
 namespace backend\controllers;
 
-use src\Core\Domain\Mapper\MapService;
-use src\Core\Infrastructure\RecordService\RecordService;
+use src\Modules\ListContext\Domain\Service\ListService;
+use Yii;
 use yii\web\Controller;
 
 class ListController extends Controller
 {
-
     /**
-     * @var MapService
+     * @var ListService
      */
-    private $mapper;
-    /**
-     * @var RecordService
-     */
-    private $recordService;
+    private $listService;
 
-
-    public function __construct($id, $module, MapService $mapper, RecordService $recordService, $config = [])
+    public function __construct($id, $module, ListService $listService, $config = [])
     {
         parent::__construct($id, $module, $config);
-        $this->mapper = $mapper;
-        $this->recordService = $recordService;
+        $this->listService = $listService;
     }
 
 
@@ -31,10 +24,11 @@ class ListController extends Controller
      * @param $table_name
      * @return string
      */
-    public function actionIndex($table_name)
+    public function actionIndex()
     {
-        $tableItems = $this->recordService->getAllByTableName($table_name);
+        $tableName = Yii::$app->request->get('table_name') ?? 'sys_table';
+        $tableItems = $this->listService->getAllByTableName($tableName);
 
-        return $this->render('index', ['items' => $tableItems]);
+        return $this->render('index', ['tableName' => $tableName,'items' => $tableItems]);
     }
 }

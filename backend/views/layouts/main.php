@@ -1,9 +1,11 @@
 <?php
 
 /* @var $this \yii\web\View */
+
 /* @var $content string */
 
 use backend\assets\AppAsset;
+use common\widgets\Sidebar;
 use yii\helpers\Html;
 use yii\bootstrap\Nav;
 use yii\bootstrap\NavBar;
@@ -62,18 +64,26 @@ AppAsset::register($this);
             'links' => isset($this->params['breadcrumbs']) ? $this->params['breadcrumbs'] : [],
         ]) ?>
         <?= Alert::widget() ?>
-        <?= $content ?>
+<!--        <div class="d-flex main-wrapper" id="wrapper">-->
+<!--            <div class="bg-light border-right" id="sidebar-wrapper">-->
+<!--                <div class="sidebar-heading">Menue</div>-->
+<!--                <div class="list-group list-group-flush">-->
+<!--                    --><?//= Sidebar::widget([
+//                            'items' => Yii::$app->params['sidebarItems']
+//                    ])?>
+<!--                </div>-->
+<!--            </div>-->
+            <?= $content ?>
+        </div>
     </div>
+    <footer class="footer">
+        <div class="container">
+            <p class="pull-left">&copy; <?= Html::encode(Yii::$app->name) ?> <?= date('Y') ?></p>
+
+            <p class="pull-right"><?= Yii::powered() ?></p>
+        </div>
+    </footer>
 </div>
-
-<footer class="footer">
-    <div class="container">
-        <p class="pull-left">&copy; <?= Html::encode(Yii::$app->name) ?> <?= date('Y') ?></p>
-
-        <p class="pull-right"><?= Yii::powered() ?></p>
-    </div>
-</footer>
-
 <?php $this->endBody() ?>
 </body>
 </html>

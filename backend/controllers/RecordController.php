@@ -2,59 +2,38 @@
 
 namespace backend\controllers;
 
-use src\Modules\Query\Infrastructure\Repository\QueryRepository;
+use src\Modules\Record\Infrastructure\Service\RecordService;
 use Yii;
-use src\Core\Domain\Mapper\MapService;
 use src\Modules\Query\Domain\Entity\SysQuery;
 use yii\web\Controller;
 
 class RecordController extends Controller
 {
-
     /**
-     * @var QueryRepository
+     * @var RecordService
      */
-    private $queryRepository;
-    /**
-     * @var MapService
-     */
-    private $mapper;
+    private $recordService;
 
-    public function __construct($id, $module, QueryRepository $queryRepository, MapService $mapper, $config = [])
+    public function __construct($id, $module, RecordService $recordService, $config = [])
     {
         parent::__construct($id, $module, $config);
-        $this->queryRepository = $queryRepository;
-        $this->mapper = $mapper;
+
+        $this->recordService = $recordService;
     }
 
-    public function actionIndex($id)
+    public function actionIndex($id, $tableName)
     {
-
+        $data = $this->recordService->getRecord($id, $tableName);
+        return $this->render('index', ['data' => $data]);
     }
-
-    /**
-     * @return string
-     */
-    public function actionQuery()
-    {
-        $data = Yii::$app->request->get();
-        return $this->render('query', ['message' => null]) ;
-    }
-
-    public function actionQueryExecute($query)
-    {
-        $message = $this->queryRepository->executeQuery($query['query_body']);
-        return $this->render('query', ['message' => null, 'query_body' => $query['query_body']]) ;
-    }
-
 
     /**
      * @return \yii\web\Response
      * @throws \yii\db\Exception
      */
-    public function actionQueryCreate()
+    public function actionCreate()
     {
-        $query=Yii::$app->request->get();
+        $data = Yii::$app->request->get();
         $this->actionQueryExecute($query);
 
         if(count($query) === 3)

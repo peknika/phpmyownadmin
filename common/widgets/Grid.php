@@ -3,7 +3,10 @@
 
 namespace common\widgets;
 
-class Grid extends \yii\bootstrap\Widget
+use yii\bootstrap\Html;
+use yii\bootstrap\Widget;
+
+class Grid extends Widget
 {
 
     public $items;
@@ -24,14 +27,14 @@ class Grid extends \yii\bootstrap\Widget
             $result .= "<th scope=\"col\">$header</th>";
 
         }
-        $result .= "</tr></thead><tbody>";
+        $result .= "<th>Delete</th><th>View</th></thead><tbody></tr>";
 
         foreach ($this->items as $row) {
-            $result .= "<tr>";
+            $result .= "<tr id={$row['sys_id']}>";
             foreach ($row as $col) {
                 $result .= "<td>$col</td>";
             }
-            $result .= "</tr>";
+            $result .= "<td>⒳</td><td>⒱</td></tr>";
         }
 
         $result .= "</tbody></table>";

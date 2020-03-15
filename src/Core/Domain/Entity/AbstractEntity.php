@@ -4,7 +4,7 @@
 namespace src\Core\Domain\Entity;
 
 
-class AbstractAttributesEntity
+abstract class AbstractEntity
 {
     public function geAttributes(): array
     {

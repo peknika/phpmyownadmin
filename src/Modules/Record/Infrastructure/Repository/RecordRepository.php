@@ -1,12 +1,12 @@
 <?php
 
 
-namespace src\Core\Infrastructure\RecordService;
+namespace src\Core\Infrastructure\Repository;
 
 
 use yii\db\Query;
 
-class RecordService
+class RecordRepository
 {
     public function getAllByTableName(string $tableName): array
     {

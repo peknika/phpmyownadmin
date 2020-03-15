@@ -1,13 +1,15 @@
 <?php
 
-namespace src\Modules\Table\Domain\Entity;
+
+namespace src\Modules\Sidebar\Domain\Entity;
 
 use src\Core\Domain\Entity\AbstractEntity;
 use src\Core\Domain\Entity\EntityInterface;
 
-class SysTable extends AbstractEntity implements EntityInterface
+class SysSidebar extends AbstractEntity implements EntityInterface
 {
-    const TABLE_NAME = 'sys_table';
+
+    const TABLE_NAME = 'sys_sidebar';
 
     /** @var int */
     public  $sys_id;
@@ -19,5 +21,4 @@ class SysTable extends AbstractEntity implements EntityInterface
     {
         return self::TABLE_NAME;
     }
-
 }

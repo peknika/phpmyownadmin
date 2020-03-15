@@ -2,7 +2,7 @@
 
 namespace src\Modules\Query\Infrastructure\Repository;
 
-use src\Core\Infrastructure\AbstractRepository;
+use src\Core\Infrastructure\Repository\AbstractRepository;
 use src\Modules\Query\Domain\Entity\SysQuery;
 use src\Modules\Query\Domain\Repository\QueryRepositoryInterface;
 use Yii;
@@ -13,11 +13,7 @@ class QueryRepository extends AbstractRepository implements QueryRepositoryInter
 {
     public function executeQuery(string $query)
     {
-        try {
-            return Yii::$app->db->createCommand($query)->execute();
-        } catch (Exception $e) {
-            return $e->getMessage();
-        }
+        return Yii::$app->db->createCommand($query)->execute();
     }
 
     public function findOneById(int $id)
@@ -26,6 +22,16 @@ class QueryRepository extends AbstractRepository implements QueryRepositoryInter
             ->from(SysQuery::TABLE_NAME)
             ->where([
                 'id' => $id
+            ])
+            ->one();
+    }
+
+    public function findOneByName($queryName)
+    {
+        return (new Query())
+            ->from(SysQuery::TABLE_NAME)
+            ->where([
+                'query_name' => $queryName
             ])
             ->one();
     }
