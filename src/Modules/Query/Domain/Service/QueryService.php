@@ -40,11 +40,7 @@ class QueryService
      */
     public function executeQuery(string $query)
     {
-        try {
-            $this->queryRepository->executeQuery($query);
-        } catch (Exception $e) {
-            return $e->getMessage();
-        }
+        $this->queryRepository->executeQuery($query);
     }
 
 

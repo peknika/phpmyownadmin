@@ -13,7 +13,18 @@ class QueryRepository extends AbstractRepository implements QueryRepositoryInter
 {
     public function executeQuery(string $query)
     {
-        return Yii::$app->db->createCommand($query)->execute();
+        $psql = Yii::$app->db->createCommand($query);
+        foreach (['INSERT','UPDATE', 'DELETE' ] as $word)
+        {
+            if(strpos($query, $word) !== false) {
+                return $psql->execute();
+            }
+        }
+        if(strpos($query, 'SELECT *') !== false) {
+            return $psql->queryAll();
+        } else {
+            $psql->queryOne();
+        }
     }
 
     public function findOneById(int $id)

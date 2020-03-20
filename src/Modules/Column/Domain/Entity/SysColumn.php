@@ -2,10 +2,10 @@
 
 namespace src\Modules\Column\Domain\Entity;
 
-
+use src\Core\Domain\Entity\AbstractEntity;
 use src\Core\Domain\Entity\EntityInterface;
 
-class SysColumn implements EntityInterface
+class SysColumn extends AbstractEntity implements EntityInterface
 {
     const TABLE_NAME = 'sys_column';
 
@@ -25,5 +25,4 @@ class SysColumn implements EntityInterface
     {
         return self::getTableName();
     }
-
 }

@@ -10,7 +10,7 @@ use common\models\LoginForm;
 /**
  * Site controller
  */
-class SiteController extends Controller
+class SiteController extends BasicController
 {
 //    /**
 //     * {@inheritdoc}
@@ -60,8 +60,6 @@ class SiteController extends Controller
      */
     public function actionIndex()
     {
-        Yii::$app->params['sidebarItems'] = $this->getSidebarItemsCommand->execute();;
-
         return $this->render('index');
     }
 

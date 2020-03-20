@@ -1,18 +1,33 @@
 <?php
 
+namespace src\Modules\Record\Infrastructure\Repository;
 
-namespace src\Core\Infrastructure\Repository;
-
-
+use src\Core\Domain\Entity\EntityInterface;
+use src\Core\Domain\Mapper\MapService;
+use src\Core\Infrastructure\Repository\AbstractRepository;
+use src\Modules\Record\Domain\Entity\DynamicEntity;
+use src\Modules\Record\Domain\Repository\RecordRepositoryInterface;
 use yii\db\Query;
 
-class RecordRepository
+class RecordRepository extends AbstractRepository implements RecordRepositoryInterface
 {
-    public function getAllByTableName(string $tableName): array
+    /**
+     * @var MapService
+     */
+    private $mapService;
+
+    public function __construct(MapService $mapService)
     {
-        return (new Query())
+        $this->mapService = $mapService;
+    }
+
+    public function findOneById(int $id, string $tableName): DynamicEntity
+    {
+        $data =  (new Query())
             ->from($tableName)
-            ->all();
+            ->where(['sys_id' => $id])
+            ->one();
+        return $this->mapService->map($data, new DynamicEntity($tableName, $data));
     }
 
 }

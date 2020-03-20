@@ -64,16 +64,20 @@ AppAsset::register($this);
             'links' => isset($this->params['breadcrumbs']) ? $this->params['breadcrumbs'] : [],
         ]) ?>
         <?= Alert::widget() ?>
-<!--        <div class="d-flex main-wrapper" id="wrapper">-->
-<!--            <div class="bg-light border-right" id="sidebar-wrapper">-->
-<!--                <div class="sidebar-heading">Menue</div>-->
-<!--                <div class="list-group list-group-flush">-->
-<!--                    --><?//= Sidebar::widget([
-//                            'items' => Yii::$app->params['sidebarItems']
-//                    ])?>
-<!--                </div>-->
-<!--            </div>-->
-            <?= $content ?>
+        <div class="d-flex main-wrapper" id="wrapper">
+            <div class="bg-light border-right" id="sidebar-wrapper">
+                <div class="sidebar-heading">Menu</div>
+                <div class="list-group list-group-flush">
+                    <?= Sidebar::widget([
+                        'items' => Yii::$app->params['sidebarItems']
+                    ]) ?>
+                </div>
+            </div>
+            <div id="page-content-wrapper">
+                <div class="container-fluid">
+                    <?= $content ?>
+                </div>
+            </div>
         </div>
     </div>
     <footer class="footer">

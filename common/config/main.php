@@ -1,5 +1,6 @@
 <?php
 
+use kartik\icons\Icon;
 use src\Core\Domain\Mapper\MapService;
 use src\Core\Infrastructure\Repository\RecordRepository;
 use src\Modules\ListContext\Domain\Repository\ListRepositoryInterface;
@@ -14,12 +15,13 @@ return [
         '@bower' => '@vendor/bower-asset',
         '@npm' => '@vendor/npm-asset',
     ],
+    'params' => ['icon-framework' => \kartik\icons\Icon::FAS],  // Font Awesome Icon framework
     'vendorPath' => dirname(dirname(__DIR__)) . '/vendor',
     'components' => [
         'cache' => [
             'class' => 'yii\caching\FileCache',
         ],
-        'urlManager' => require __DIR__ . '/url_manager.php',
+ //       'urlManager' => require __DIR__ . '/url_manager.php',
     ],
     'container' => [
         'singletons' => [
@@ -27,7 +29,7 @@ return [
             QueryRepositoryInterface::class => QueryRepository::class,
             MapService::class => MapService::class,
             RecordRepository::class => RecordRepository::class,
-            ListRepositoryInterface::class => ListRepository::class
+            ListRepositoryInterface::class => ListRepository::class,
             ]
     ],
 ];

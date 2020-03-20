@@ -3,7 +3,8 @@
 namespace backend\controllers;
 
 use src\Modules\Sidebar\Application\Command\GetSidebarItemsCommand;
-use yii\base\Controller;
+use Yii;
+use yii\web\Controller;
 
 class BasicController extends Controller
 {
@@ -18,7 +19,11 @@ class BasicController extends Controller
         $this->getSidebarItemsCommand = $getSidebarItemsCommand;
     }
 
+    public function getSidebarAction()
+    {
+        Yii::$app->params['sidebarItems'] = $this->getSidebarItemsCommand->execute();
+    }
 
-// Yii::$app->params['sidebarItems'] = $this->getSidebarItemsCommand->execute();
+
 
 }

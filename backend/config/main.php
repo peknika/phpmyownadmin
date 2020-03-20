@@ -1,7 +1,6 @@
 <?php
 
-use src\Modules\Query\Domain\Repository\QueryRepositoryInterface;
-use src\Modules\Query\Infrastructure\Repository\QueryRepository;
+use kartik\icons\Icon;
 
 $params = array_merge(
     require __DIR__ . '/../../common/config/params.php',
@@ -15,7 +14,7 @@ return [
     'basePath' => dirname(__DIR__),
     'controllerNamespace' => 'backend\controllers',
     'defaultRoute' => 'list/index',
-        'bootstrap' => ['log'],
+    'bootstrap' => ['log'],
     'modules' => [],
     'components' => [
         'request' => [
